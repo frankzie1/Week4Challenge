@@ -1,0 +1,140 @@
+<html>
+<title>Shafeeq's Calculator</title>
+<script>
+var num1 = 0;
+var num2 = 0;
+var operator = "";
+
+function shafeeq(clicked){
+var display = document.getElementById("display");
+
+if (num1 == 0){
+    if (clicked == 0 || clicked == 1 || clicked == 2 || clicked == 3 
+    || clicked == 4 || clicked == 5 || clicked == 6 
+    || clicked == 7 || clicked == 8 || clicked == 9){
+        if (clicked == 0 && display.value == 0){
+        display.value = "";
+        }
+        else {
+        display.value += clicked;
+        }
+    }
+
+    if (clicked == "+/-"){
+        if (display.value.substring(0, 1) != "-"){
+        display.value = "-" + display.value
+        }
+        else {
+        display.value = display.value.substring(1, display.value.length - 0);
+        }
+    }
+
+    if (clicked == "C"){
+        display.value = "";
+        }
+
+    if (clicked == "+" || clicked == "-" 
+        || clicked == "*" || clicked == "/"){
+        operator = clicked;
+        num1 = display.value
+        display.value = ""
+        }
+    }
+
+if (num1 != 0){
+
+if (clicked == 0 || clicked == 1 || clicked == 2 || clicked == 3 
+    || clicked == 4 || clicked == 5 || clicked == 6 
+    || clicked == 7 || clicked == 8 || clicked == 9){
+    if (clicked == 0 && display.value == 0){
+        display.value = "";
+        }
+    else {
+        display.value += clicked;
+        }
+    }
+
+    if (clicked == "+/-"){
+        if (display.value.substring(0, 1) != "-"){
+        display.value = "-" + display.value
+        }
+        else {
+        display.value = display.value.substring(1, display.value.length - 0);
+        }
+    }
+
+    if (clicked == "C"){
+        display.value = "";
+        num1 = 0;
+        operator = "";
+        }
+
+    if (clicked == "="){
+        num2 = display.value
+    if (operator == "+"){
+        display.value = parseInt(num1) + parseInt(num2);
+        }
+
+    if (operator == "-"){
+        display.value = parseInt(num1) - parseInt(num2);
+        }
+
+    if (operator == "*"){
+        display.value = parseInt(num1) * parseInt(num2);
+    }
+
+    if (operator == "/"){
+        display.value = parseInt(num1) / parseInt(num2);
+        }
+    }
+}
+
+}
+
+</script>
+
+<body>
+
+<table border="2" >
+   
+<tr> 
+    <th colspan="5"><input type="text" name="display" id="display" disabled> </th>
+</tr>
+    
+<tr>
+    <td><input type="button" value=" 7 " onclick="shafeeq('7')"></td>
+    <td><input type="button" value=" 8 " onclick="shafeeq('8')"></td>
+    <td><input type="button" value=" 9 " onclick="shafeeq('9')"></td>
+    <td><input type="button" value=" ÷ " onclick="shafeeq('/')"></td>
+    <td><input type="button" value="+/-" onclick="shafeeq('+/-')"></td>
+</tr>
+
+<tr>
+    <td><input type="button" value=" 4 " onclick="shafeeq('4')"></td>
+    <td><input type="button" value=" 5 " onclick="shafeeq('5')"></td>
+    <td><input type="button" value=" 6 " onclick="shafeeq('6')"></td>
+    <td><input type="button" value=" x " onclick="shafeeq('*')"></td>
+    <td><input type="button" value=" C " onclick="shafeeq('C')"></td>
+</tr>
+
+<tr>
+    <td><input type="button" value=" 1 " onclick="shafeeq('1')"></td>
+    <td><input type="button" value=" 2 " onclick="shafeeq('2')"></td>
+    <td><input type="button" value=" 3 " onclick="shafeeq('3')"></td>
+    <td><input type="button" value=" - " onclick="shafeeq('-')"></td>
+    <td><input type="button" value="-->" onclick="shafeeq('-->')"></td>
+</tr>
+
+<tr>
+    <td><input type="button" value=" 0 " onclick="shafeeq('0')"></td>
+    <td><input type="button" value="00" onclick="shafeeq('00')"></td>
+    <td><input type="button" value=" .  " onclick="shafeeq('.')"></td>
+    <td><input type="button" value=" + " onclick="shafeeq('+')"></td>
+    <td><input type="button" value=" = " onclick="shafeeq('=')"></td>
+</tr>
+
+</table>
+
+</body>
+ 
+</html>
